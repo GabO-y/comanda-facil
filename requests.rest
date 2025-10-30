@@ -1,0 +1,82 @@
+@MAIN_ROUTE = http://localhost:8080
+@MENU_ROUTE = {{MAIN_ROUTE}}/menu
+@PRODUCT_ROUTE = {{MAIN_ROUTE}}/product
+@PRICE_LIST_ROUTE = {{MAIN_ROUTE}}/price-list
+
+
+##############################################
+##############################################
+
+### busca todos os menus
+GET {{MENU_ROUTE}}
+
+### busca pelo id
+GET {{MENU_ROUTE}}/1
+
+### cria um menu
+POST {{MENU_ROUTE}}
+Content-Type: application/json
+
+{
+    "name": "Menu Padrão"
+}
+
+###Adiciona um item ao menu
+PUT {{MENU_ROUTE}}/item
+Content-Type: application/json
+
+{
+    "productId": "1",
+    "menuId": "1"
+}
+
+##############################################
+##############################################
+
+
+### busca todos os produtos
+GET {{PRODUCT_ROUTE}}
+
+### Busca produtos pelo id
+GET {{PRODUCT_ROUTE}}/1
+
+### Adiciona um produto
+POST {{PRODUCT_ROUTE}}
+Content-Type: application/json
+
+{
+    "name": "product 1"
+}
+
+##############################################
+##############################################
+
+### busca todas as listas de preços
+GET {{PRICE_LIST_ROUTE}}
+
+### busca lista de preços pelo id
+GET {{PRICE_LIST_ROUTE}}/1
+
+### cria uma tabela de preços
+POST {{PRICE_LIST_ROUTE}}
+Content-Type: application/json
+
+{
+    "name": "tabela de preços 1",
+    "begin": "2020-12-11",
+    "end": "2021-02-13",
+    "inEffect": false    
+}
+
+### adiciona um item a uma tabela de preços pelos ids
+PUT {{PRICE_LIST_ROUTE}}
+Content-Type: application/json
+
+{
+    "productId": 1,
+    "priceListId": 1,
+    "price": 200
+}
+
+##############################################
+##############################################
